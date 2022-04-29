@@ -2,7 +2,7 @@ environment: {{ .Environment.Name }}
 
 origin: security
 
-cloudflareApiToken: {{ env "CLOUDFLARE_TOKEN" | default "cf_token" }}
+cloudflareApiToken: {{ "ref+vault://op/vaults/Rotation-test/items/base-services-cf-token?proto=http#password" | fetchSecretValue }}
 
 
 alertRules:
